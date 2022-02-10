@@ -1,0 +1,18 @@
+package com.example.demo;
+
+import com.example.model.User;
+import com.example.signIn.repo.SignInRepo;
+import com.example.signIn.service.SignInService;
+
+public class Test {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		User user=new User("jon","doe");
+		SignInRepo s=null;
+		s.save(user);
+		
+
+	}
+
+}

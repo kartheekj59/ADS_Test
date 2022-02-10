@@ -1,0 +1,34 @@
+package com.example.signIn.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.example.model.User;
+import com.example.signIn.repo.SignInRepo;
+
+public class SignInService {
+	
+	@Autowired
+	SignInRepo repo;
+
+	public SignInService() {
+		super();
+		
+	}
+	public void saveUser(User user) {
+		//try {
+			repo.save(user);
+		//}
+		//catch(Exception e){
+		//	System.out.println(e);
+	//	}
+	}
+	public void deleteUser(User user) {
+		try {
+			repo.delete(user);
+		}
+		catch(Exception e){
+			System.out.println(e);
+		}
+	}
+
+}

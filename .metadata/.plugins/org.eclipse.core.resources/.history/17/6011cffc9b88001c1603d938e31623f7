@@ -1,0 +1,22 @@
+package com.example.demo.repo;
+
+import java.util.List;
+
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+import com.example.demo.model.RadarData;
+import com.example.demo.model.RadarEntity;
+import com.example.demo.model.User;
+
+@Repository
+public interface RadarDataRepo extends CrudRepository<RadarEntity,Long> {
+	 default List<RadarEntity> getLatestData(String userName,Integer count)
+    {
+        return getByuserNameOrderBystartDateDesc(userName,PageRequest.of(0, count));
+    }
+
+	public List<RadarEntity> getByuserNameOrderBystartDateDesc(String userName, PageRequest of);
+
+}
